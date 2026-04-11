@@ -6,6 +6,7 @@ import { CheckoutPage } from "../pages/Checkout";
 import { FinishPage } from "../pages/Finish";
 import { SidebarPage } from "../pages/sidbar";
 
+// This file defines custom fixtures for our tests, providing instances of our Page Object Models (POMs) for easy access in test files.
 type MyFixtures = {
   loginPage: LoginPage;
   inventoryPage: InventoryPage;
