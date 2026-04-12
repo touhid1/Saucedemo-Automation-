@@ -6,7 +6,7 @@ export class InventoryPage {
   private readonly sortDropdown: Locator;
   private readonly cartBadge: Locator;
   private readonly shoppingCartLink: Locator;
-
+// This class represents the Inventory page of the application, providing methods to interact with inventory items, sort options, and the shopping cart.
   constructor(page: Page) {
     this.page = page;
     this.headerTitle = page.locator('[data-test="title"]');
@@ -15,7 +15,7 @@ export class InventoryPage {
     this.cartBadge = page.locator('[data-test="shopping-cart-badge"]');
     this.shoppingCartLink = page.locator('[data-test="shopping-cart-link"]');
   }
-
+// Method to assert that the Inventory page is displayed by checking the visibility and text content of the header title locator.
   async addItemToCart(itemName: string) {
     const item = this.inventoryItems.filter({ hasText: itemName });
     await item.locator('button[data-test^="add-to-cart"]').click();
@@ -54,10 +54,10 @@ export class InventoryPage {
       await expect(
         item.locator('[data-test="inventory-item-price"]'),
       ).not.toBeEmpty();
-
+// Additionally, we can check that the item image is visible and has a valid source.
       const img = item.locator("img.inventory_item_img");
       await expect(img).toBeVisible();
-
+// Check that the image source is not a placeholder or broken link (this is a basic check and can be enhanced based on actual application behavior).
       const src = await img.getAttribute("src");
       expect(src).not.toContain("sl-404");
     }
