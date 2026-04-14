@@ -7,7 +7,7 @@ export class SidebarPage {
   private readonly aboutLink: Locator;
   private readonly resetLink: Locator;
   private readonly closeMenuButton: Locator;
-
+// This class represents the sidebar menu of the application, providing methods to interact with the menu options such as logging out, navigating to different sections, and resetting the app state.
   constructor(page: Page) {
     this.page = page;
     this.burgerMenuButton = page.locator("#react-burger-menu-btn");
@@ -17,7 +17,7 @@ export class SidebarPage {
     this.resetLink = page.locator('[data-test="reset-sidebar-link"]');
     this.closeMenuButton = page.locator("#react-burger-cross-btn");
   }
-
+// Method to open the sidebar menu by clicking the burger menu button and asserting that the logout link is visible, indicating that the menu has opened successfully.
   async open() {
     await this.burgerMenuButton.click();
     await expect(this.logoutLink).toBeVisible();
