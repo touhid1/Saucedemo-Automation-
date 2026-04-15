@@ -1,13 +1,14 @@
 import { test, expect } from "../fixtures/fixtures";
 import { testData } from "../data/testData";
 
+// This test suite focuses on the authentication (login) functionality of the application, covering various scenarios such as valid and invalid credentials, validation messages, and error handling. Each test case is designed to verify that the application behaves correctly under different conditions related to user login.
 test.describe("🔐 Authentication (Login) - Core Foundation", () => {
   test.use({ storageState: { cookies: [], origins: [] } });
 
   test.beforeEach(async ({ loginPage }) => {
     await loginPage.navigate();
   });
-
+// Test case for successful login with valid credentials, verifying that the user is redirected to the inventory page upon successful authentication.
   test("Valid username + valid password → login success", async ({
     loginPage,
     page,
